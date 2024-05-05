@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Prediction Result</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f7f7f7; /* Changed background color */
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 400px; /* Adjusted width */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+            color: #333;
+            border: 1px solid #ccc; /* Added border */
+            padding: 20px; /* Added padding */
+            border-radius: 10px; /* Added border-radius */
+            margin: auto; /* Centered horizontally */
+            margin-top: 50px; /* Added top margin */
+        }
+        .logo {
+            margin-bottom: 20px; /* Adjusted margin */
+        }
+        .logo img {
+            width: 100px; /* Adjusted width */
+        }
+        h1 {
+            font-size: 24px; /* Adjusted font size */
+            font-weight: bold;
+        }
+        .green-text {
+            color: #4CAF50; /* Green color */
+        }
+        .red-text {
+            color: #FF5733; /* Red color */
+        }
+        a.button {
+            display: inline-block;
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            margin-top: 20px; /* Added top margin */
+        }
+        a.button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Prediction Result</h1>
+
+        {% if data == 0 %}
+        <h1 class="red-text">Fake Profile</h1>
+        <div class="logo">
+            <!-- Add your image for fake profile here -->
+            <img src="{{ url_for('static', filename='fakefinal.jpg') }}" alt="Fake Image">
+        </div>
+        {% else %}
+        <h1 class="green-text">Genuine Profile</h1>
+        <div class="logo">
+            <!-- Add your image for genuine profile here -->
+            <img src="{{ url_for('static', filename='genuine.png') }}" alt="Genuine Image">
+        </div>
+        {% endif %}
+
+        <br><br>
+        <a href="/" class="button">Back to Home Page</a>
+
+    </div>
+
+</body>
+</html>

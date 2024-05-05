@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f7f7f7;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+        }
+        .logo {
+            margin-bottom: 30px;
+        }
+        .logo img {
+            width: 200px; /* Adjust the width as needed */
+        }
+        .hero-text {
+            margin-bottom: 50px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #333;
+        }
+        .hero-text h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+        .hero-text p {
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+        .start-button {
+            padding: 15px 30px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            font-size: 18px;
+        }
+        .start-button:hover {
+            background-color: #45a049;
+        }
+        .form-container {
+            width: 400px;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.1);
+            margin: 50px auto;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #333;
+        }
+        input[type="text"] {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        input[type="submit"] {
+            width: calc(100% - 22px);
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            font-size: 16px;
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+    <script>
+        function scrollDown() {
+            window.scrollTo({
+                top: document.querySelector('.form-container').offsetTop,
+                behavior: 'smooth'
+            });
+        }
+    </script>
+</head>
+<body>
+
+    <div class="container">
+        <div class="logo">
+            <!-- Add your logo image here -->
+            <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo">
+        </div>
+        <div class="hero-text">
+            <h1>Fake Account Detection System</h1>
+            <p>Identify fake social media profiles with our advanced detection system.</p>
+        </div>
+        <button class="start-button" onclick="scrollDown()">Start</button>
+    </div>
+
+    <div class="form-container">
+        <h1>Enter Profile Details</h1>
+
+        <form action="/predict" method="post">
+            Favorite Number: <input type="text" name="fav_number"><br>
+            Statuses Count: <input type="text" name="statuses_count"><br>
+            Followers Count: <input type="text" name="followers_count"><br>
+            Friends Count: <input type="text" name="friends_count"><br>
+            Favourites Count: <input type="text" name="favourites_count"><br>
+            Listed Count: <input type="text" name="listed_count"><br>
+            Name: <input type="text" name="name"><br><br>
+            <input type="submit" value="Predict">
+        </form>
+    </div>
+
+</body>
+</html>
